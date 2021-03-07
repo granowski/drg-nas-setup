@@ -14,8 +14,6 @@ use std::path::Path;
 use std::error::Error;
 
 fn main() {
-    println!("Hello, world!");
-
     let configuration_defaults_path = Path::new("./configuration/defaults.yaml");
 
     if !configuration_defaults_path.exists() {
@@ -74,6 +72,8 @@ fn main() {
         let owner_user = get_user_by_name(owner_of_share_location).unwrap();
 
         unsafe {
+            // todo -> write some constants for the mode integer...
+            // 448 = rwx...... = (owner has read/write/execute, but no group or others)
             chmod(path_c_str.as_ptr(), 448);
             chown(path_c_str.as_ptr(), owner_user.uid(), owner_user.primary_group_id());
         }
