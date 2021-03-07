@@ -1,0 +1,11 @@
+[package]
+name = "drg-nas-setup"
+version = "0.1.0"
+authors = ["Derrick Granowski <granowski@coffeetariat.net>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+yaml-rust = "0.4.5"
+libc = "0.2"
+users = "0.11"
